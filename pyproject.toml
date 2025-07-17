@@ -1,14 +1,15 @@
 [project]
 name = "pipeline-api"
 version = "0.1.0"
-description = ""
+description = "Projeto de pipeline API"
 authors = [
     {name = "Gustavo Guimarães",email = "gustavojobwork@gmail.com"}
 ]
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
-    "requests (>=2.32.4,<3.0.0)"
+    "requests (>=2.32.4,<3.0.0)",
+    "streamlit (>=1.47.0,<2.0.0)"
 ]
 
 [tool.poetry]
