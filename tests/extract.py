@@ -1,4 +1,3 @@
-# %%
 import requests
 from sqlalchemy import create_engine, Column, String, Float, Integer, DateTime
 from sqlalchemy.orm import declarative_base, sessionmaker
@@ -53,7 +52,6 @@ def saveData(dados):
         session.commit()
         print("Dados salvos no PostgreSQL!")
 
-# %%
 if __name__ == "__main__":
     while True:
         # Extração e tratamento dos dados
