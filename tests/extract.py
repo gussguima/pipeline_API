@@ -5,12 +5,9 @@ from sqlalchemy.orm import declarative_base, sessionmaker
 from datetime import datetime
 from time import sleep
 import psycopg2
-from dotenv import load_dotenv
-import os
-load_dotenv()
 
 # configuração do banco de dados
-DATABASE_URL = os.getenv("DATABASE_KEY")
+DATABASE_URL = "postgresql://db_bitcoin_v03k_user:Ul1aWsJpksDAx6LGGiffjqVkpGjB4E3B@dpg-d1sgqqbe5dus739mqp40-a.ohio-postgres.render.com/db_bitcoin_v03k"
 
 # Criação da engine e da sessão
 engine = create_engine(DATABASE_URL)
