@@ -1,5 +1,4 @@
 import requests
-import psycopg2
 from time import sleep
 from datetime import datetime
 from sqlalchemy import create_engine, Column, String, Float, Integer, DateTime
