@@ -10,11 +10,11 @@ DATABASE_URL = "postgresql://db_bitcoin_v03k_user:Ul1aWsJpksDAx6LGGiffjqVkpGjB4E
 
 # Criação da engine e da sessão
 engine = create_engine(DATABASE_URL)
-session = sessionmaker(bind=engine)
-base = declarative_base()
+Session = sessionmaker(bind=engine)
+Base = declarative_base()
 
 # Definição do modelo de dados
-class BitcoinDados(base):
+class BitcoinDados(Base):
     __tablename__ = "bitcoin_dados"
     
     id = Column(Integer, primary_key=True)
@@ -24,7 +24,7 @@ class BitcoinDados(base):
     timestamp = Column(DateTime)
 
 # Cria a tabela (se não existir)
-base.metadata.create_all(engine)
+Base.metadata.create_all(engine)
 
 # Declarando as funções de request e response
 def extract():
@@ -48,7 +48,7 @@ def transform(dados_json):
 
 def saveData(dados):
     # Salva os dados no PostgreSQL usando SQLAlchemy
-    with session() as session:
+    with Session() as session:
         session.add(dados)
         session.commit()
         print("Dados salvos no PostgreSQL!")
@@ -59,10 +59,6 @@ if __name__ == "__main__":
         dados_json = extract()
         dados_tratados = transform(dados_json)
 
-        # Mostrar os dados tratados
-        print("Dados Tratados:")
-        dados_tratados
-        
         # Salvar no PostgreSQL
         saveData(dados_tratados)
 
